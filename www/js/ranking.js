@@ -16,19 +16,17 @@ function toRanking() {
 
 // 【mBaaS】保存したデータの検索と取得
 function checkRanking() {
-    // **********【問題２】ランキングを表示しよう！**********
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // ******************************************************
+  // 保存先クラスを作成
+  var GameScore = ncmb.DataStore("GameScore");
+  // データを取得
+  GameScore.order("score", true).limit(5).fetchAll()
+  .then(function(results){
+    setData(results);
+    console.log("検索に成功しました。");
+  })
+  .catch(function(error){
+    console.log("検索に失敗しました。エラー:"+ error)
+  });
 }
 
 // テーブルにデータを設定
